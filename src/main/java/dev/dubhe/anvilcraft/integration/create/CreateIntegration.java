@@ -6,42 +6,48 @@ import com.simibubi.create.api.packager.unpacking.UnpackingHandler;
 import com.simibubi.create.api.registry.SimpleRegistry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.dubhe.anvilcraft.AnvilCraft;
+import dev.dubhe.anvilcraft.api.amulet.AmuletType;
 import dev.dubhe.anvilcraft.api.integration.Integration;
-import dev.dubhe.anvilcraft.block.GlowingMetalBlock;
 import dev.dubhe.anvilcraft.block.HeaterBlock;
-import dev.dubhe.anvilcraft.block.IncandescentMetalBlock;
-import dev.dubhe.anvilcraft.block.RedhotMetalBlock;
+import dev.dubhe.anvilcraft.block.heatable.GlowingBlock;
+import dev.dubhe.anvilcraft.block.heatable.IncandescentBlock;
+import dev.dubhe.anvilcraft.block.heatable.RedhotBlock;
 import dev.dubhe.anvilcraft.init.ModBlocks;
+import dev.dubhe.anvilcraft.init.ModDamageTypeTags;
+import dev.dubhe.anvilcraft.init.ModEntityTypeTags;
 import dev.dubhe.anvilcraft.init.ModItemGroups;
 import dev.dubhe.anvilcraft.init.ModItems;
-import dev.dubhe.anvilcraft.item.amulet.CogwheelAmuletItem;
+import dev.dubhe.anvilcraft.init.ModRegistries;
+import dev.dubhe.anvilcraft.item.amulet.AmuletItem;
 import dev.dubhe.anvilcraft.recipe.JewelCraftingRecipe;
-import dev.dubhe.anvilcraft.util.AmuletUtil;
+import dev.dubhe.anvilcraft.util.predicate.DamageSourcePredicate;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Objects;
 
 import static dev.dubhe.anvilcraft.AnvilCraft.REGISTRATE;
 
 @Integration("create")
 public class CreateIntegration {
     private static final BoilerHeater HEATER = CreateIntegration::heater;
-    private static final BoilerHeater REDHOT_METAL = new ConstantValueHeater(1);
-    private static final BoilerHeater GLOWING_METAL = new ConstantValueHeater(2);
-    private static final BoilerHeater INCANDESCENT_METAL = new ConstantValueHeater(3);
+    private static final BoilerHeater REDHOT = new ConstantValueHeater(1);
+    private static final BoilerHeater GLOWING = new ConstantValueHeater(2);
+    private static final BoilerHeater INCANDESCENT = new ConstantValueHeater(3);
 
     public void apply() {
         BoilerHeater.REGISTRY.registerProvider(new MyProvider());
         AnvilCraft.MOD_BUS.addListener(this::registerToTab);
         UnpackingHandler.REGISTRY.registerProvider(new BatchCrafterUnpackingHandler.Provider());
+        REGISTER.register(AnvilCraft.MOD_BUS);
     }
 
     private static float heater(Level level, BlockPos blockPos, BlockState blockState) {
@@ -58,14 +64,14 @@ public class CreateIntegration {
             if (block == ModBlocks.HEATER.get()) {
                 return HEATER;
             }
-            if (block instanceof IncandescentMetalBlock) {
-                return INCANDESCENT_METAL;
+            if (block instanceof IncandescentBlock) {
+                return INCANDESCENT;
             }
-            if (block instanceof GlowingMetalBlock) {
-                return GLOWING_METAL;
+            if (block instanceof GlowingBlock) {
+                return GLOWING;
             }
-            if (block instanceof RedhotMetalBlock) {
-                return REDHOT_METAL;
+            if (block instanceof RedhotBlock) {
+                return REDHOT;
             }
             return null;
         }
@@ -87,23 +93,31 @@ public class CreateIntegration {
         }
     }
 
-    public static final ItemEntry<CogwheelAmuletItem> COGWHEEL_AMULET = REGISTRATE
-        .item("cogwheel_amulet", CogwheelAmuletItem::new)
+    public static final ItemEntry<? extends AmuletItem> COGWHEEL_AMULET = REGISTRATE
+        .item("cogwheel_amulet", properties -> new AmuletItem(properties) {
+            @Override
+            public Holder<AmuletType> getType() {
+                return COGWHEEL.getDelegate();
+            }
+        })
         .properties(properties -> properties.stacksTo(1))
         .removeTab(ModItemGroups.ANVILCRAFT_INGREDIENTS.getKey())
         .recipe((ctx, provider) -> JewelCraftingRecipe.builder()
+            .withCondition(new ModLoadedCondition("create"))
             .requires(ModItems.SILVER_INGOT, 1)
             .requires(AllItems.PRECISION_MECHANISM, 16)
             .result(new ItemStack(ctx.get()))
             .save(provider))
         .register();
 
-    static {
-        AmuletUtil.registerCustomType(new AmuletUtil.Type(
-            "cogwheel", (sources, source) ->
-            ModList.get().isLoaded("create")
-                && Objects.requireNonNull(sources.damageTypes.getKey(source.type())).getNamespace().contains("create"),
-            COGWHEEL_AMULET
-        ));
-    }
+    private static final DeferredRegister<AmuletType> REGISTER = DeferredRegister.create(ModRegistries.AMULET_TYPE_KEY, AnvilCraft.MOD_ID);
+    private static final DeferredHolder<AmuletType, ? extends AmuletType> COGWHEEL = REGISTER.register(
+        "cogwheel", () -> new AmuletType.ImmuneDamageFromObtain(
+        DamageSourcePredicate.Builder.builder()
+            .type(ModDamageTypeTags.COGWHEEL_AMULET_VALID)
+            .type("create")
+            .murder(ModEntityTypeTags.COGWHEEL_AMULET_VALID)
+            .build().build(),
+        COGWHEEL_AMULET.asStack()
+    ));
 }
