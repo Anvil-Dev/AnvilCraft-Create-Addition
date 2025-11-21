@@ -159,7 +159,6 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
                || state.is(ModBlockTags.STORAGE_BLOCKS_PLUTONIUM) // 钚
                || state.is(ModBlockTags.STORAGE_BLOCKS_BRONZE) // 青铜
                || state.is(ModBlockTags.STORAGE_BLOCKS_BRASS) //  黄铜
-               || state.is(ModBlockTags.STORAGE_BLOCKS_URANIUM) // 铀
                || state.is(ModBlockTags.STORAGE_BLOCKS_TUNGSTEN) // 钨
                || state.is(ModBlockTags.STORAGE_BLOCKS_TITANIUM) // 钛
                || state.is(ModBlockTags.STORAGE_BLOCKS_RAW_URANIUM) // 粗铀
