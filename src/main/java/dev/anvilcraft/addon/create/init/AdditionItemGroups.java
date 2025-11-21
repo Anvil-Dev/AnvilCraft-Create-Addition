@@ -1,6 +1,7 @@
-package dev.anvilcraft.addon.template.init;
+package dev.anvilcraft.addon.create.init;
 
-import dev.anvilcraft.addon.template.AnvilCraftAddonTemplate;
+import dev.anvilcraft.addon.create.AnvilCraftCreateAddition;
+import dev.dubhe.anvilcraft.init.block.ModBlocks;
 import dev.dubhe.anvilcraft.init.item.ModItemGroups;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
@@ -8,26 +9,26 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static dev.anvilcraft.addon.template.AnvilCraftAddonTemplate.REGISTRATE;
+import static dev.anvilcraft.addon.create.AnvilCraftCreateAddition.REGISTRATE;
 
 
-public class AddonItemGroups {
+public class AdditionItemGroups {
     private static final DeferredRegister<CreativeModeTab> DEFERRED_REGISTER = DeferredRegister.create(
         Registries.CREATIVE_MODE_TAB,
-        AnvilCraftAddonTemplate.MOD_ID
+        AnvilCraftCreateAddition.MOD_ID
     );
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ADDON_ITEMS = DEFERRED_REGISTER.register(
-        "addon_items",
+        "addition_items",
         () -> CreativeModeTab.builder()
-            .icon(AddonItems.EXAMPLE_ITEM::asStack)
+            .icon(ModBlocks.MAGNETO_ELECTRIC_CORE_BLOCK::asStack)
             .displayItems((ctx, entries) -> {
             })
             .title(
                 REGISTRATE.addLang(
                     "itemGroup",
-                    AnvilCraftAddonTemplate.of("addon_items"),
-                    "AnvilCraft: Addon Template"
+                    AnvilCraftCreateAddition.of("addition_items"),
+                    "AnvilCraft: Create Addition"
                 )
             )
             .withTabsBefore(ModItemGroups.ANVILCRAFT_BUILD_BLOCK.getId())

@@ -14,9 +14,6 @@ jar {
     from(project.file("README.md")) {
         rename { "${it}_${mod_id}" }
     }
-    from(project.file("README_en.md")) {
-        rename { "${it}_${mod_id}" }
-    }
 }
 
 base {

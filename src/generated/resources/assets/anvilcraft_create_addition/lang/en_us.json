@@ -1,0 +1,12 @@
+{
+  "anvilcraft_create_addition.configuration.log_dirt_block": "Log Dirt Block",
+  "anvilcraft_create_addition.configuration.log_dirt_block.tooltip": "Whether to log the dirt block on common setup",
+  "anvilcraft_create_addition.configuration.magic_number": "Magic Number",
+  "anvilcraft_create_addition.configuration.magic_number.tooltip": "A magic number",
+  "anvilcraft_create_addition.configuration.magic_number_introduction": "Magic Number Introduction",
+  "anvilcraft_create_addition.configuration.magic_number_introduction.tooltip": "What you want the introduction message to be for the magic number",
+  "anvilcraft_create_addition.configuration.section.anvilcraft_create_addition.common.toml": "Anvilcraft Create Addition Common Configuration",
+  "anvilcraft_create_addition.configuration.section.anvilcraft_create_addition.common.toml.title": "Anvilcraft Create Addition Common Configuration",
+  "anvilcraft_create_addition.configuration.title": "Anvilcraft Create Addition Configuration",
+  "itemGroup.anvilcraft_create_addition.addition_items": "AnvilCraft: Create Addition"
+}

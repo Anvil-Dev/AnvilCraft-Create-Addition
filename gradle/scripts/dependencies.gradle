@@ -23,4 +23,14 @@ dependencies {
 
     // Patchouli
     implementation(libs.patchouli)
+
+    // Flywheel
+    implementation(libs.flywheelApi)
+    implementation(libs.flywheel)
+
+    // Ponder
+    implementation(libs.ponder) { transitive = false }
+
+    // Create
+    implementation(libs.create) { transitive = false }
 }
