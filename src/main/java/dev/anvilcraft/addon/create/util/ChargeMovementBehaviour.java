@@ -36,6 +36,54 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
         }
     }
 
+    public void magnetTick(@NotNull ChargeCollectorManager manager, @NotNull Level level, BlockPos blockPos, double speed) {
+        for (Direction direction : Direction.values()) {
+            BlockPos offsetPos = blockPos.relative(direction);
+            BlockState offsetState = level.getBlockState(offsetPos);
+            Collection<ChargeCollectorManager.Entry> chargeCollectorCollection = manager.getNearestChargeCollect(offsetPos);
+            if (!ChargeMovementBehaviour.isMetal(offsetState)) {
+                continue;
+            }
+            double surplus = 1 * speed;
+            for (ChargeCollectorManager.Entry entry : chargeCollectorCollection) {
+                ChargeCollectorBlockEntity chargeCollectorBlockEntity = entry.getBlockEntity();
+                if (!ChargeCollectorManager.getInstance(level).canCollect(chargeCollectorBlockEntity, offsetPos)) return;
+                surplus = chargeCollectorBlockEntity.incomingCharge(surplus, offsetPos);
+                if (surplus == 0) break;
+            }
+        }
+    }
+
+    public void metalTick(@NotNull ChargeCollectorManager manager, @NotNull Level level, BlockPos blockPos, double speed) {
+        Collection<ChargeCollectorManager.Entry> chargeCollectorCollection = manager.getNearestChargeCollect(blockPos);
+        for (Direction direction : Direction.values()) {
+            BlockPos offsetPos = blockPos.relative(direction);
+            BlockState offsetState = level.getBlockState(offsetPos);
+            if (!offsetState.is(ModBlockTags.MAGNET)) {
+                continue;
+            }
+            double surplus = 1 * speed;
+            for (ChargeCollectorManager.Entry entry : chargeCollectorCollection) {
+                ChargeCollectorBlockEntity chargeCollectorBlockEntity = entry.getBlockEntity();
+                if (!ChargeCollectorManager.getInstance(level).canCollect(chargeCollectorBlockEntity, blockPos)) return;
+                surplus = chargeCollectorBlockEntity.incomingCharge(surplus, blockPos);
+                if (surplus == 0) return;
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void register(FMLLoadCompleteEvent event) {
+        for (Block block : BuiltInRegistries.BLOCK) {
+            BlockState defaultState = block.defaultBlockState();
+            if (defaultState.is(ModBlockTags.MAGNET)) {
+                MovementBehaviour.movementBehaviour(new ChargeMovementBehaviour()).accept(block);
+            } else if (ChargeMovementBehaviour.isMetal(defaultState)) {
+                MovementBehaviour.movementBehaviour(new ChargeMovementBehaviour()).accept(block);
+            }
+        }
+    }
+
     public static boolean isMetal(@NotNull BlockState state) {
         return state.is(Tags.Blocks.STORAGE_BLOCKS_COPPER) // 铜
                || state.is(Tags.Blocks.STORAGE_BLOCKS_IRON) // 铁
@@ -68,51 +116,5 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
                || state.is(ModBlocks.EMBER_METAL_BLOCK) // 余烬金属
                || state.is(ModBlocks.CUT_EMBER_METAL_BLOCK) // 切制余烬金属
                || state.is(ModBlocks.FROST_METAL_BLOCK); // 浮霜金属
-    }
-
-    public void magnetTick(@NotNull ChargeCollectorManager manager, @NotNull Level level, BlockPos blockPos, double speed) {
-        for (Direction direction : Direction.values()) {
-            BlockPos offsetPos = blockPos.relative(direction);
-            BlockState offsetState = level.getBlockState(offsetPos);
-            Collection<ChargeCollectorManager.Entry> chargeCollectorCollection = manager.getNearestChargeCollect(offsetPos);
-            if (ChargeMovementBehaviour.isMetal(offsetState)) {
-                double surplus = 1 * speed;
-                for (ChargeCollectorManager.Entry entry : chargeCollectorCollection) {
-                    ChargeCollectorBlockEntity chargeCollectorBlockEntity = entry.getBlockEntity();
-                    if (!ChargeCollectorManager.getInstance(level).canCollect(chargeCollectorBlockEntity, offsetPos)) return;
-                    surplus = chargeCollectorBlockEntity.incomingCharge(surplus, offsetPos);
-                    if (surplus == 0) break;
-                }
-            }
-        }
-    }
-
-    public void metalTick(@NotNull ChargeCollectorManager manager, @NotNull Level level, BlockPos blockPos, double speed) {
-        Collection<ChargeCollectorManager.Entry> chargeCollectorCollection = manager.getNearestChargeCollect(blockPos);
-        for (Direction direction : Direction.values()) {
-            BlockPos offsetPos = blockPos.relative(direction);
-            BlockState offsetState = level.getBlockState(offsetPos);
-            if (offsetState.is(ModBlockTags.MAGNET)) {
-                double surplus = 1 * speed;
-                for (ChargeCollectorManager.Entry entry : chargeCollectorCollection) {
-                    ChargeCollectorBlockEntity chargeCollectorBlockEntity = entry.getBlockEntity();
-                    if (!ChargeCollectorManager.getInstance(level).canCollect(chargeCollectorBlockEntity, blockPos)) return;
-                    surplus = chargeCollectorBlockEntity.incomingCharge(surplus, blockPos);
-                    if (surplus == 0) return;
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void register(FMLLoadCompleteEvent event) {
-        for (Block block : BuiltInRegistries.BLOCK) {
-            BlockState defaultState = block.defaultBlockState();
-            if (defaultState.is(ModBlockTags.MAGNET)) {
-                MovementBehaviour.movementBehaviour(new ChargeMovementBehaviour()).accept(block);
-            } else if (ChargeMovementBehaviour.isMetal(defaultState)) {
-                MovementBehaviour.movementBehaviour(new ChargeMovementBehaviour()).accept(block);
-            }
-        }
     }
 }
