@@ -6,13 +6,7 @@ import dev.anvilcraft.lib.config.Config;
 
 @Config(name = AnvilCraftCreateAddition.MOD_ID)
 public class AnvilCraftCreateAdditionConfig {
-    @Comment("Whether to log the dirt block on common setup")
-    public boolean logDirtBlock = false;
-
-    @Comment("A magic number")
-    @BoundedDiscrete(max = 24, min = 2)
-    public int magicNumber = 2;
-
-    @Comment("What you want the introduction message to be for the magic number")
-    public String magicNumberIntroduction = "";
+    @Comment("The ratio of the relative linear speed of the copper block and the magnet to the amount of charge generated")
+    @BoundedDiscrete(max = 255.0, min = 0.01)
+    public double chargeGeneratedEfficiency = 1.0;
 }

@@ -18,7 +18,10 @@ import org.slf4j.Logger;
 public class AnvilCraftCreateAddition {
     public static final String MOD_ID = "anvilcraft_create_addition";
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static final AnvilCraftCreateAdditionConfig CONFIG = ConfigManager.register(AnvilCraftCreateAddition.MOD_ID, AnvilCraftCreateAdditionConfig::new);
+    public static final AnvilCraftCreateAdditionConfig CONFIG = ConfigManager.register(
+        AnvilCraftCreateAddition.MOD_ID,
+        AnvilCraftCreateAdditionConfig::new
+    );
     public static final Registrate REGISTRATE = Registrate.create(MOD_ID);
 
     public AnvilCraftCreateAddition(@NotNull IEventBus modEventBus, @NotNull ModContainer modContainer) {
