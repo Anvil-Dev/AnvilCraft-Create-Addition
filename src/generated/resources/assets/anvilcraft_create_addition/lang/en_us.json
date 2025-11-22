@@ -3,6 +3,8 @@
   "anvilcraft_create_addition.configuration.charge_generated_efficiency.tooltip": "The ratio of the relative linear speed of the copper block and the magnet to the amount of charge generated",
   "anvilcraft_create_addition.configuration.section.anvilcraft_create_addition.common.toml": "Anvilcraft Create Addition Common Configuration",
   "anvilcraft_create_addition.configuration.section.anvilcraft_create_addition.common.toml.title": "Anvilcraft Create Addition Common Configuration",
+  "anvilcraft_create_addition.configuration.stress_dissipation_coefficient": "Stress Dissipation Coefficient",
+  "anvilcraft_create_addition.configuration.stress_dissipation_coefficient.tooltip": "The mysterious coefficient, perhaps related to the stress required by the generator?",
   "anvilcraft_create_addition.configuration.title": "Anvilcraft Create Addition Configuration",
   "itemGroup.anvilcraft_create_addition.addition_items": "AnvilCraft: Create Addition"
 }

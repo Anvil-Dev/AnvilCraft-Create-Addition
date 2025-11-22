@@ -1,23 +1,33 @@
 package dev.anvilcraft.addon.create.util;
 
 import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
+import com.simibubi.create.content.contraptions.Contraption;
+import com.simibubi.create.content.contraptions.ControlledContraptionEntity;
+import com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlockEntity;
+import com.simibubi.create.content.contraptions.bearing.StabilizedBearingMovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.anvilcraft.addon.create.AnvilCraftCreateAddition;
+import dev.anvilcraft.addon.create.mixin.ContraptionInvoker;
 import dev.dubhe.anvilcraft.api.chargecollector.ChargeCollectorManager;
 import dev.dubhe.anvilcraft.init.block.ModBlockTags;
 import dev.dubhe.anvilcraft.init.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
+import org.apache.commons.lang3.tuple.MutablePair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Unique;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -174,5 +184,45 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
                || state.is(ModBlocks.EMBER_METAL_BLOCK) // 余烬金属
                || state.is(ModBlocks.CUT_EMBER_METAL_BLOCK) // 切制余烬金属
                || state.is(ModBlocks.FROST_METAL_BLOCK); // 浮霜金属
+    }
+
+    @Unique
+    public static float calculateStressApplied(@NotNull Contraption contraption) {
+        float coefficient = 0.0f;
+        // 遍历所有活动部件，查找具有ChargeMovementBehaviour的行为，并根据其位置累加系数
+        for (MutablePair<StructureTemplate.StructureBlockInfo, MovementContext> actor : contraption.getActors()) {
+            StructureTemplate.StructureBlockInfo info = actor.getLeft();
+            MovementContext context = actor.getRight();
+            MovementBehaviour behaviour = MovementBehaviour.REGISTRY.get(info.state());
+            switch (behaviour) {
+                case ChargeMovementBehaviour ignored -> {
+                    // 使用方块中心点到原点的距离作为影响因子
+                    float offset = (float) info.pos().getCenter().length();
+                    coefficient += offset;
+                }
+                case StabilizedBearingMovementBehaviour ignored -> {
+//                    CompoundTag c = new CompoundTag();
+//                    c.putLong("Pos", info.pos().asLong());
+//                    c.putInt("State", id);
+//
+//                    BlockEntity blockEntity = ((ContraptionInvoker) contraption).invokeReadBlockEntity(context.world, info, info.nbt());
+//                    if (!(blockEntity instanceof MechanicalBearingBlockEntity mechanicalBearingBlockEntity)) {
+//                        continue;
+//                    }
+//                    ControlledContraptionEntity movedContraption = mechanicalBearingBlockEntity.getMovedContraption();
+//                    if (movedContraption == null) {
+//                        continue;
+//                    }
+//                    Contraption contraption1 = movedContraption.getContraption();
+//                    if (contraption1 == null) {
+//                        continue;
+//                    }
+//                    coefficient += ChargeMovementBehaviour.calculateStressApplied(contraption1);
+                }
+                case null, default -> {
+                }
+            }
+        }
+        return coefficient * AnvilCraftCreateAddition.CONFIG.stressDissipationCoefficient;
     }
 }
