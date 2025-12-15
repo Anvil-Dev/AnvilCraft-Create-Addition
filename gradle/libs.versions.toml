@@ -4,10 +4,6 @@ neoForge = "21.1.215"
 registrate = "MC1.21-1.3.0+62"
 anvillib = "1.4.0+build.168"
 anvilcraft = "1.5.0+pre-release.21"
-curios = "9.0.15+1.21.1"
-jei = "19.21.0.247"
-jade = "15.3.4+neoforge"
-patchouli = "1.21-87-NEOFORGE"
 modDevGradle = "2.0.78"
 lombok = "8.7.1"
 create = "6.0.6-107"
@@ -18,12 +14,6 @@ flywheel = "1.0.4-30"
 registrate = { group = "com.tterrag.registrate", name = "Registrate", version.ref = "registrate" }
 anvillib = { group = "dev.anvilcraft.lib", name = "anvillib-neoforge-1.21.1", version.ref = "anvillib" }
 anvilcraft = { group = "dev.dubhe", name = "anvilcraft-neoforge-1.21.1", version.ref = "anvilcraft" }
-curios = { group = "top.theillusivec4.curios", name = "curios-neoforge", version.ref = "curios" }
-jeiCommonApi = { group = "mezz.jei", name = "jei-1.21.1-common-api", version.ref = "jei" }
-jeiForgeApi = { group = "mezz.jei", name = "jei-1.21.1-neoforge-api", version.ref = "jei" }
-jeiForgeImpl = { group = "mezz.jei", name = "jei-1.21.1-neoforge", version.ref = "jei" }
-jade = { group = "maven.modrinth", name = "jade", version.ref = "jade" }
-patchouli = { group = "vazkii.patchouli", name = "Patchouli", version.ref = "patchouli" }
 create = { group = "com.simibubi.create", name = "create-1.21.1", version.ref = "create" }
 ponder = { group = "net.createmod.ponder", name = "Ponder-NeoForge-1.21.1", version.ref = "ponder" }
 flywheelApi = { group = "dev.engine-room.flywheel", name = "flywheel-neoforge-api-1.21.1", version.ref = "flywheel" }
