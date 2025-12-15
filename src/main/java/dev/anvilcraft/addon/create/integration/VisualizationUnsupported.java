@@ -1,4 +1,4 @@
-package dev.dubhe.anvilcraft.integration.create;
+package dev.anvilcraft.addon.create.integration;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

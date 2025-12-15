@@ -1,4 +1,4 @@
-package dev.dubhe.anvilcraft.integration.create;
+package dev.anvilcraft.addon.create.integration;
 
 import com.simibubi.create.api.packager.unpacking.UnpackingHandler;
 import com.simibubi.create.api.registry.SimpleRegistry;

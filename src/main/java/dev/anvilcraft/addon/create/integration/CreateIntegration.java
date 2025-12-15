@@ -1,4 +1,4 @@
-package dev.dubhe.anvilcraft.integration.create;
+package dev.anvilcraft.addon.create.integration;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.boiler.BoilerHeater;
