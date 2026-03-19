@@ -13,6 +13,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
+import javax.annotation.Nullable;
+
 /**
  * Mixin类用于修改 {@link MechanicalBearingBlockEntity} 的行为。
  * 此类通过继承 {@link GeneratingKineticBlockEntity} 并实现接口来扩展原版逻辑，
@@ -28,7 +30,7 @@ abstract class MechanicalBearingBlockEntityMixin extends GeneratingKineticBlockE
      * @return 被带动的机械装置实体，可能为null
      */
     @Shadow
-    public abstract ControlledContraptionEntity getMovedContraption();
+    public abstract @Nullable ControlledContraptionEntity getMovedContraption();
 
     /**
      * 构造一个新的 {@code MechanicalBearingBlockEntityMixin} 实例。

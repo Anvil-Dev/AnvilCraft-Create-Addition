@@ -2,22 +2,17 @@ package dev.anvilcraft.addon.create.util;
 
 import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.Contraption;
-import com.simibubi.create.content.contraptions.ControlledContraptionEntity;
-import com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlockEntity;
 import com.simibubi.create.content.contraptions.bearing.StabilizedBearingMovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.anvilcraft.addon.create.AnvilCraftCreateAddition;
-import dev.anvilcraft.addon.create.mixin.ContraptionInvoker;
 import dev.dubhe.anvilcraft.api.chargecollector.ChargeCollectorManager;
 import dev.dubhe.anvilcraft.init.block.ModBlockTags;
 import dev.dubhe.anvilcraft.init.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -25,7 +20,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Unique;
 
@@ -45,7 +39,7 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
      * @param context 移动上下文对象，包含世界、位置、状态等信息
      */
     @Override
-    public void tick(@NotNull MovementContext context) {
+    public void tick(MovementContext context) {
         Level level = context.world;
         double speed = context.motion.length();
         BlockPos blockPos = BlockPos.containing(context.position);
@@ -67,7 +61,7 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
      * @param blockPos 当前方块的位置
      * @param speed    方块移动的速度大小
      */
-    public void magnetTick(@NotNull ChargeCollectorManager manager, @NotNull Level level, BlockPos blockPos, double speed) {
+    public void magnetTick(ChargeCollectorManager manager, Level level, BlockPos blockPos, double speed) {
         // 遍历六个方向查找相邻的金属方块并为其充能
         for (Direction direction : Direction.values()) {
             BlockPos offsetPos = blockPos.relative(direction);
@@ -88,7 +82,7 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
      * @param blockPos 当前方块的位置
      * @param speed    方块移动的速度大小
      */
-    public void metalTick(@NotNull ChargeCollectorManager manager, @NotNull Level level, BlockPos blockPos, double speed) {
+    public void metalTick(ChargeCollectorManager manager, Level level, BlockPos blockPos, double speed) {
         // 遍历六个方向寻找相邻的磁铁方块，并将产生的电量传递给附近的集电器
         int magnetCount = 0;
         for (Direction direction : Direction.values()) {
@@ -128,7 +122,7 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
         registered = true;
     }
 
-    private static @Nullable String registerBlock(@NotNull Block block) {
+    private static @Nullable String registerBlock(Block block) {
         MovementBehaviour behaviour = MovementBehaviour.REGISTRY.get(block);
         if (behaviour != null) {
             return null;
@@ -153,7 +147,7 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
      * @param state 方块的状态对象
      * @return 如果是金属材料返回true，否则返回false
      */
-    public static boolean isMetal(@NotNull BlockState state) {
+    public static boolean isMetal(BlockState state) {
         return state.is(Tags.Blocks.STORAGE_BLOCKS_COPPER) // 铜
                || state.is(Tags.Blocks.STORAGE_BLOCKS_IRON) // 铁
                || state.is(Tags.Blocks.STORAGE_BLOCKS_GOLD) // 金
@@ -187,7 +181,7 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
     }
 
     @Unique
-    public static float calculateStressApplied(@NotNull Contraption contraption) {
+    public static float calculateStressApplied(Contraption contraption) {
         float coefficient = 0.0f;
         // 遍历所有活动部件，查找具有ChargeMovementBehaviour的行为，并根据其位置累加系数
         for (MutablePair<StructureTemplate.StructureBlockInfo, MovementContext> actor : contraption.getActors()) {

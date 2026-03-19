@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 @SuppressWarnings("UnstableApiUsage")
-public class BatchCrafterUnpackingHandler implements UnpackingHandler {
+public class BatchCrafterUnpackingHandler implements UnpackingHandler, SimpleRegistry.Provider<Block, UnpackingHandler> {
     public static final UnpackingHandler DEFAULT = (level, pos, state, side, items, orderContext, simulate) -> {
         BlockEntity targetBE = level.getBlockEntity(pos);
         if (!(targetBE instanceof BatchCrafterBlockEntity batchCrafter)) {
@@ -120,14 +120,11 @@ public class BatchCrafterUnpackingHandler implements UnpackingHandler {
         return false;
     }
 
-    public static class Provider implements SimpleRegistry.Provider<Block, UnpackingHandler> {
-
-        @Override
-        public @Nullable UnpackingHandler get(Block object) {
-            if (object == ModBlocks.BATCH_CRAFTER.get()) {
-                return INSTANCE;
-            }
-            return null;
+    @Override
+    public @Nullable UnpackingHandler get(Block object) {
+        if (object == ModBlocks.BATCH_CRAFTER.get()) {
+            return INSTANCE;
         }
+        return null;
     }
 }
