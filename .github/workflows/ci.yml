@@ -72,7 +72,7 @@ jobs:
         uses: Anvil-Dev/dedicated-server-launch-test@1.21.1-neoforge
         with:
           mod: build/libs/${{ steps.properties.outputs.mod_id }}-neoforge-${{ steps.version.outputs.version }}.jar
-          extra-mods: patchouli:1.21-87-neoforge anvilcraft:1.21.1-1.5.2+hotfix.1650 create:1.21.1-6.0.6-107
+          extra-mods: patchouli:1.21-87-neoforge anvilcraft:1.21.1-1.5.2+hotfix.1650 create:1.21.1-6.0.6
 
       - name: publish neoforge mc mod
         uses: Kir-Antipov/mc-publish@v3.3
@@ -94,7 +94,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           dependencies: |
-            create@mc1.21.1-6.0.6-107(required){modrinth:LNytGWDc}{curseforge:328085}
+            create@mc1.21.1-6.0.6(required){modrinth:LNytGWDc}{curseforge:328085}
             anvilcraft@1.21.1-1.5.2+hotfix.1650(required){modrinth:vuISAWPc}{curseforge:986251}
 
           files: |
