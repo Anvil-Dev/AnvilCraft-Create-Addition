@@ -4,7 +4,7 @@ English | [中文](./README.md)
 
 ## Introduction
 
-AnvilCraft Create Addition is an extension mod designed for the Minecraft Forge modding ecosystem. It provides deep integration between **AnvilCraft** and **Create**, two excellent mods, offering players new possibilities for mechanical crafting, power transmission, and magical enchantments.
+AnvilCraft Create Addition is an extension mod designed for the NeoForge modding ecosystem. It provides deep integration between **AnvilCraft** and **Create**, two excellent mods, offering players new possibilities for mechanical crafting, power transmission, and magical enchantments.
 
 ## Mod Features
 

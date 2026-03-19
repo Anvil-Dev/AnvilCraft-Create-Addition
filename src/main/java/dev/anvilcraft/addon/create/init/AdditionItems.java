@@ -2,7 +2,6 @@ package dev.anvilcraft.addon.create.init;
 
 import com.simibubi.create.AllItems;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import dev.dubhe.anvilcraft.AnvilCraft;
 import dev.dubhe.anvilcraft.api.amulet.type.AmuletType;
 import dev.dubhe.anvilcraft.init.item.ModItemGroups;
 import dev.dubhe.anvilcraft.init.item.ModItems;

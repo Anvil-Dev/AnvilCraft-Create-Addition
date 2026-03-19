@@ -60,7 +60,7 @@ jobs:
           path: build/libs/${{ steps.properties.outputs.mod_id }}-neoforge-${{ steps.version.outputs.version }}.jar
 
       - name: Publish to maven
-        if: ${{ steps.properties.outputs.upload }}
+        if: ${{ steps.properties.outputs.upload == 'true' }}
         run: ./gradlew publish
         env:
           MAVEN_URL: ${{ secrets.MAVEN_URL }}
@@ -72,11 +72,11 @@ jobs:
         uses: Anvil-Dev/dedicated-server-launch-test@1.21.1-neoforge
         with:
           mod: build/libs/${{ steps.properties.outputs.mod_id }}-neoforge-${{ steps.version.outputs.version }}.jar
-          extra-mods: patchouli:1.21-87-neoforge anvilcraft:1.21.1-1.5.0+pre-release.21 create:1.21.1-6.0.6
+          extra-mods: patchouli:1.21-87-neoforge anvilcraft:1.21.1-1.5.2+hotfix.1650 create:1.21.1-6.0.6-107
 
       - name: publish neoforge mc mod
         uses: Kir-Antipov/mc-publish@v3.3
-        if: ${{ steps.properties.outputs.upload }}
+        if: ${{ steps.properties.outputs.upload == 'true' }}
         continue-on-error: true
         with:
           name: "${{ steps.properties.outputs.mod_name }} For NeoForge v${{ steps.version.outputs.version }}"
@@ -94,8 +94,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           dependencies: |
-            create@mc1.21.1-6.0.7(required){modrinth:LNytGWDc}{curseforge:328085}
-            anvilcraft@1.21.1-1.5.0(required){modrinth:vuISAWPc}{curseforge:986251}
+            create@mc1.21.1-6.0.6-107(required){modrinth:LNytGWDc}{curseforge:328085}
+            anvilcraft@1.21.1-1.5.2+hotfix.1650(required){modrinth:vuISAWPc}{curseforge:986251}
 
           files: |
             build/libs/${{ steps.properties.outputs.mod_id }}-neoforge-${{ steps.version.outputs.version }}.jar

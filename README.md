@@ -4,7 +4,7 @@
 
 ## 简介
 
-AnvilCraft Create Addition 是一个为 Minecraft Forge 模组生态系统设计的扩展模组。它将 **AnvilCraft** 和 **Create** 两个优秀的模组深度融合，为玩家提供新的机械加工、动力传输和魔法工艺的可能性。
+AnvilCraft Create Addition 是一个为 NeoForge 模组生态系统设计的扩展模组。它将 **AnvilCraft** 和 **Create** 两个优秀的模组深度融合，为玩家提供新的机械加工、动力传输和魔法工艺的可能性。
 
 ## 模组特性
 
