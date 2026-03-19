@@ -19,4 +19,9 @@ dependencies {
 
     // Create
     implementation(libs.create) { transitive = false }
+
+    // GuideME
+    runtimeOnly(libs.anvilcraftguideme) { transitive = false }
+    runtimeOnly(libs.guideme)
+
 }
