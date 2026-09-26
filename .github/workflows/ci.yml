@@ -38,9 +38,8 @@ jobs:
           fields: |
             versions.minecraft
             versions.neoforge
-            versions.anvillib
-            versions.ageratum
             versions.anvilcraft
+            versions.create
 
       - name: Setup Java ${{ steps.properties.outputs.java_version }}
         uses: actions/setup-java@v5.6.0
@@ -86,11 +85,11 @@ jobs:
           loader_version: ${{ steps.versions.outputs.versions_neoforge }}
           mods: build/libs/${{ steps.properties.outputs.mod_id }}-neoforge-${{ steps.version.outputs.version }}.jar
           maven-repos: |
-            https://server.cjsah.net:1002/maven/
+            https://server.cjsah.net:1002/maven/releases/
+            https://maven.createmod.net/
           maven-mods: |
-            dev.anvilcraft.lib:anvillib-neoforge-1.21.1:${{ steps.versions.outputs.versions_anvillib }}
-            dev.anvilcraft.resource:ageratum-neoforge-1.21.1:${{ steps.versions.outputs.versions_ageratum }}
             dev.dubhe:anvilcraft-neoforge-1.21.1:${{ steps.versions.outputs.versions_anvilcraft }}
+            com.simibubi.create:create-1.21.1:${{ steps.versions.outputs.versions_create }}
 
       - name: Publish Mod
         uses: KirA-NT/mc-publish@v3.3.1
@@ -103,9 +102,8 @@ jobs:
           fail-mode: skip
           changelog: Early test version, please download and play with caution. 早期测试版本，请谨慎下载游玩
           dependencies: |
-            anvil-lib(embedded){modrinth:nKAcAL9b}{curseforge:1484302}
-            ageratum(embedded){modrinth:9YApuDd3}{curseforge:1500610}
             anvilcraft(required){modrinth:vuISAWPc}{curseforge:986251}
+            create(required){modrinth:LNytGWDc}{curseforge:328085}
 
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           modrinth-featured: true

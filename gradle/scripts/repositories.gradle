@@ -19,7 +19,7 @@ repositories {
             includeGroup "dev.dubhe"
         }
     }
-    maven { // Registrate Fork
+    maven { // Registrate
         name = "Ithundxr Maven"
         url = "https://maven.ithundxr.dev/snapshots"
     }

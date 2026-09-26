@@ -35,7 +35,6 @@ jobs:
         with:
           file: gradle/libs.versions.toml
           fields: |
-            versions.minecraft
             versions.neoforge
             versions.anvillib
             versions.ageratum
@@ -77,8 +76,8 @@ jobs:
           loader_version: ${{ steps.versions.outputs.versions_neoforge }}
           mods: build/libs/${{ steps.properties.outputs.mod_id }}-neoforge-${{ steps.version.outputs.version }}.jar
           maven-repos: |
-            https://server.cjsah.net:1002/maven/
+            https://server.cjsah.net:1002/maven/releases/
+            https://maven.createmod.net/
           maven-mods: |
-            dev.anvilcraft.lib:anvillib-neoforge-1.21.1:${{ steps.versions.outputs.versions_anvillib }}
-            dev.anvilcraft.resource:ageratum-neoforge-1.21.1:${{ steps.versions.outputs.versions_ageratum }}
             dev.dubhe:anvilcraft-neoforge-1.21.1:${{ steps.versions.outputs.versions_anvilcraft }}
+            com.simibubi.create:create-1.21.1:${{ steps.versions.outputs.versions_create }}
