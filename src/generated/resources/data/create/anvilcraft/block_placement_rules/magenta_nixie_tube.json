@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {
+      "item": "create:nixie_tube",
+      "properties": ""
+    }
+  ]
+}

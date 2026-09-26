@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {
+      "item": "create:fluid_pipe",
+      "properties": ""
+    }
+  ]
+}

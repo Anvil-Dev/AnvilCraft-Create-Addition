@@ -1,0 +1,15 @@
+{
+  "type": "anvilcraft:normal",
+  "amulet": {
+    "count": 1,
+    "id": "anvilcraft_create_addition:cogwheel_amulet"
+  },
+  "obtains": {
+    "tags": [
+      {
+        "expected": true,
+        "id": "anvilcraft_create_addition:amulet_valid/cogwheel"
+      }
+    ]
+  }
+}

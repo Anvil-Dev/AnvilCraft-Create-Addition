@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "item": "create:shaft",
+      "properties": ""
+    },
+    {
+      "item": "create:metal_girder",
+      "properties": ""
+    }
+  ]
+}

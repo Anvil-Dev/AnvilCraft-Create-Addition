@@ -1,0 +1,9 @@
+{
+  "rules": [
+    {
+      "item": "create:honey_bucket",
+      "properties": "level=0",
+      "return_item": "minecraft:bucket"
+    }
+  ]
+}

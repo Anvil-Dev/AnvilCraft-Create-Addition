@@ -1,0 +1,66 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+displayURL = "https://docs.anvilcraft.dev/"
+issueTrackerURL = "${mod_url}/issues"
+logoFile = "pack.png"
+authors = "${mod_author}"
+description = '''
+${mod_description}
+'''
+
+[[mixins]]
+config="${mod_id}.mixins.json"
+
+[[dependencies."${mod_id}"]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies."${mod_id}"]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies."${mod_id}"]]
+    modId="anvillib"
+    type="required"
+    versionRange="[2.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies."${mod_id}"]]
+    modId="ageratum"
+    type="required"
+    versionRange="[0.0.1,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies."${mod_id}"]]
+    modId="anvilcraft"
+    type="required"
+    versionRange="[1.6.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies."${mod_id}"]]
+    modId="create"
+    type="required"
+    versionRange="[6.0.11,)"
+    ordering="NONE"
+    side="BOTH"
+
+[mc-publish]
+loaders = ["neoforge"]
+modrinth = "${modrinth_id}"
+curseforge = "${curseforge_id}"
+

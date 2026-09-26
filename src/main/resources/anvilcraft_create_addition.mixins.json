@@ -1,10 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "dev.anvilcraft.addon.create.mixin",
+  "package": "dev.anvilcraft.create.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ContraptionInvoker",
     "MechanicalBearingBlockEntityMixin"
   ],
   "client": [

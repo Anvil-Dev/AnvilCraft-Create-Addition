@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "item": "create:shaft",
+      "properties": "part=start"
+    },
+    {
+      "item": "create:belt_connector",
+      "properties": "part=start"
+    },
+    {
+      "item": {},
+      "properties": "part=middle"
+    },
+    {
+      "item": "create:shaft",
+      "properties": "part=end"
+    },
+    {
+      "item": "create:shaft",
+      "properties": "part=pulley"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "item": "create:framed_glass_door",
+      "properties": "half=lower"
+    },
+    {
+      "item": {},
+      "properties": "half=upper"
+    }
+  ]
+}

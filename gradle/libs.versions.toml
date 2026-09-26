@@ -1,28 +1,34 @@
 [versions]
 minecraft = "1.21.1"
-neoForge = "21.1.215"
-registrate = "MC1.21-1.3.0+62"
-anvillib = "1.4.0+build.172"
-anvilcraft = "1.5.2+hotfix.1650"
-anvilcraft_guideme = "1.5.1-1+build.19"
-modDevGradle = "2.0.78"
+neoforge = "21.1.248"
+
+anvillib = "2.0.0+snapshot.535"
+ageratum = "0.0.1+build.121"
+anvilcraft = "1.6.0+snapshot.2341"
+
+create = "6.0.11-312"
+
+jei = "19.32.0.358"
+jade = "15.10.5+neoforge"
+
+parchment = "2024.11.17"
+mdg = "2.0.143"
 lombok = "8.7.1"
-create = "6.0.6-107"
-ponder = "1.0.56"
-flywheel = "1.0.4-30"
-guideme = "21.1.9"
 
 [libraries]
-registrate = { group = "com.tterrag.registrate", name = "Registrate", version.ref = "registrate" }
+anvillib-recipe = { group = "dev.anvilcraft.lib", name = "anvillib-recipe-neoforge-1.21.1", version.ref = "anvillib" }
+anvillib-moveableEntityBlock = { group = "dev.anvilcraft.lib", name = "anvillib-moveable-entity-block-neoforge-1.21.1", version.ref = "anvillib" }
 anvillib = { group = "dev.anvilcraft.lib", name = "anvillib-neoforge-1.21.1", version.ref = "anvillib" }
+ageratum = { group = "dev.anvilcraft.resource", name = "ageratum-neoforge-1.21.1", version.ref = "ageratum" }
 anvilcraft = { group = "dev.dubhe", name = "anvilcraft-neoforge-1.21.1", version.ref = "anvilcraft" }
+
 create = { group = "com.simibubi.create", name = "create-1.21.1", version.ref = "create" }
-ponder = { group = "net.createmod.ponder", name = "Ponder-NeoForge-1.21.1", version.ref = "ponder" }
-flywheelApi = { group = "dev.engine-room.flywheel", name = "flywheel-neoforge-api-1.21.1", version.ref = "flywheel" }
-flywheel = { group = "dev.engine-room.flywheel", name = "flywheel-neoforge-1.21.1", version.ref = "flywheel" }
-anvilcraftguideme = { group = "dev.anvilcraft.guideme", name = "anvilcraft_guideme-neoforge-1.21.1", version.ref = "anvilcraft_guideme"}
-guideme = { group = "org.appliedenergistics", name = "guideme", version.ref = "guideme" }
+
+jei-common-api = { group = "mezz.jei", name = "jei-1.21.1-common-api", version.ref = "jei" }
+jei-neoforge-api = { group = "mezz.jei", name = "jei-1.21.1-neoforge-api", version.ref = "jei" }
+jei-neoforge = { group = "mezz.jei", name = "jei-1.21.1-neoforge", version.ref = "jei" }
+jade = { group = "maven.modrinth", name = "jade", version.ref = "jade" }
 
 [plugins]
-modDevGradle = { id = "net.neoforged.moddev", version.ref = "modDevGradle" }
+mdg = { id = "net.neoforged.moddev", version.ref = "mdg" }
 lombok = { id = "io.freefair.lombok", version.ref = "lombok" }

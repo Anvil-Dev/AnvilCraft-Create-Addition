@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "item": "minecraft:lectern",
+      "properties": ""
+    },
+    {
+      "item": "create:linked_controller",
+      "properties": ""
+    }
+  ]
+}

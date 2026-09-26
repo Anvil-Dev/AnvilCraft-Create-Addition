@@ -1,10 +1,11 @@
 {
-  "anvilcraft_create_addition.configuration.charge_generated_efficiency": "ʎɔuǝıɔıɟɟƎ pǝʇɐɹǝuǝ⅁ ǝbɹɐɥƆ",
-  "anvilcraft_create_addition.configuration.charge_generated_efficiency.tooltip": "pǝʇɐɹǝuǝb ǝbɹɐɥɔ ɟo ʇunoɯɐ ǝɥʇ oʇ ʇǝubɐɯ ǝɥʇ puɐ ʞɔoןq ɹǝddoɔ ǝɥʇ ɟo pǝǝds ɹɐǝuıן ǝʌıʇɐןǝɹ ǝɥʇ ɟo oıʇɐɹ ǝɥ⟘",
-  "anvilcraft_create_addition.configuration.section.anvilcraft_create_addition.common.toml": "uoıʇɐɹnbıɟuoƆ uoɯɯoƆ uoıʇıppⱯ ǝʇɐǝɹƆ ʇɟɐɹɔןıʌuⱯ",
-  "anvilcraft_create_addition.configuration.section.anvilcraft_create_addition.common.toml.title": "uoıʇɐɹnbıɟuoƆ uoɯɯoƆ uoıʇıppⱯ ǝʇɐǝɹƆ ʇɟɐɹɔןıʌuⱯ",
-  "anvilcraft_create_addition.configuration.stress_dissipation_coefficient": "ʇuǝıɔıɟɟǝoƆ uoıʇɐdıssıᗡ ssǝɹʇS",
-  "anvilcraft_create_addition.configuration.stress_dissipation_coefficient.tooltip": "¿ɹoʇɐɹǝuǝb ǝɥʇ ʎq pǝɹınbǝɹ ssǝɹʇs ǝɥʇ oʇ pǝʇɐןǝɹ sdɐɥɹǝd 'ʇuǝıɔıɟɟǝoɔ snoıɹǝʇsʎɯ ǝɥ⟘",
-  "anvilcraft_create_addition.configuration.title": "uoıʇɐɹnbıɟuoƆ uoıʇıppⱯ ǝʇɐǝɹƆ ʇɟɐɹɔןıʌuⱯ",
-  "itemGroup.anvilcraft_create_addition.addition_items": "uoıʇıppⱯ ǝʇɐǝɹƆ :ʇɟɐɹƆןıʌuⱯ"
+  "anvilcraft_create_addition.configuration.charge_generated_efficiency": "ʎɔuǝᴉɔᴉɟɟƎ pǝʇɐɹǝuǝ⅁ ǝᵷɹɐɥƆ",
+  "anvilcraft_create_addition.configuration.charge_generated_efficiency.tooltip": "pǝʇɐɹǝuǝᵷ ǝᵷɹɐɥɔ ɟo ʇunoɯɐ ǝɥʇ oʇ ʇǝuᵷɐɯ ǝɥʇ puɐ ʞɔoꞁq ɹǝddoɔ ǝɥʇ ɟo pǝǝds ɹɐǝuᴉꞁ ǝʌᴉʇɐꞁǝɹ ǝɥʇ ɟo oᴉʇɐɹ ǝɥ⟘",
+  "anvilcraft_create_addition.configuration.section.anvilcraft.create.addition.server.toml": "uoᴉʇɐɹnᵷᴉɟuoƆ ɹǝʌɹǝS uoᴉʇᴉppⱯ ǝʇɐǝɹƆ ʇɟɐɹɔꞁᴉʌuⱯ",
+  "anvilcraft_create_addition.configuration.section.anvilcraft.create.addition.server.toml.title": "uoᴉʇɐɹnᵷᴉɟuoƆ ɹǝʌɹǝS uoᴉʇᴉppⱯ ǝʇɐǝɹƆ ʇɟɐɹɔꞁᴉʌuⱯ",
+  "anvilcraft_create_addition.configuration.stress_dissipation_coefficient": "ʇuǝᴉɔᴉɟɟǝoƆ uoᴉʇɐdᴉssᴉᗡ ssǝɹʇS",
+  "anvilcraft_create_addition.configuration.stress_dissipation_coefficient.tooltip": "¿ɹoʇɐɹǝuǝᵷ ǝɥʇ ʎq pǝɹᴉnbǝɹ ssǝɹʇs ǝɥʇ oʇ pǝʇɐꞁǝɹ sdɐɥɹǝd 'ʇuǝᴉɔᴉɟɟǝoɔ snoᴉɹǝʇsʎɯ ǝɥ⟘",
+  "anvilcraft_create_addition.configuration.title": "uoᴉʇɐɹnᵷᴉɟuoƆ uoᴉʇᴉppⱯ ǝʇɐǝɹƆ ʇɟɐɹɔꞁᴉʌuⱯ",
+  "item.anvilcraft_create_addition.cogwheel_amulet": "ʇǝꞁnɯⱯ ꞁǝǝɥʍᵷoƆ",
+  "itemGroup.anvilcraft_create_addition.items": "uoᴉʇᴉppⱯ ǝʇɐǝɹƆ :ʇɟɐɹƆꞁᴉʌuⱯ"
 }

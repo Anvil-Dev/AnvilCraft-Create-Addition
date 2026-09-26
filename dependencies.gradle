@@ -1,27 +1,26 @@
 dependencies {
-    // Registrate
-    api(libs.registrate)
+    // AnvilLib
+    api(libs.anvillib)
+    interfaceInjectionData(libs.anvillib.recipe)
+    interfaceInjectionData(libs.anvillib.moveableEntityBlock)
 
-    // Anvil Lib
-    implementation(libs.anvillib)
-    interfaceInjectionData(libs.anvillib)
+    // Ageratum
+    api(libs.ageratum)
 
     // AnvilCraft
-    implementation(libs.anvilcraft) { transitive = false }
-    interfaceInjectionData(libs.anvilcraft) { transitive = false }
-
-    // Flywheel
-    implementation(libs.flywheelApi)
-    implementation(libs.flywheel)
-
-    // Ponder
-    implementation(libs.ponder) { transitive = false }
+    api(libs.anvilcraft)
+    interfaceInjectionData(libs.anvilcraft)
 
     // Create
-    implementation(libs.create) { transitive = false }
+    api(libs.create)
 
-    // GuideME
-    runtimeOnly(libs.anvilcraftguideme) { transitive = false }
-    runtimeOnly(libs.guideme)
+    // JEI
+    compileClasspath(libs.jei.common.api) { transitive = false }
+    compileClasspath(libs.jei.neoforge.api) { transitive = false }
+    compileClasspath(libs.jei.neoforge) { transitive = false }
+    runtimeClasspath(libs.jei.neoforge) { transitive = false }
 
+    // Jade
+    compileClasspath(libs.jade)
+    runtimeClasspath(libs.jade)
 }

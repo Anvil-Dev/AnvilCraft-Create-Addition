@@ -1,0 +1,35 @@
+name: Check Style in Pull Request
+on:
+  pull_request_target:
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      checks: write
+      contents: read
+    steps:
+      - name: checkout
+        uses: actions/checkout@v7
+        with:
+          ref: refs/pull/${{ github.event.number }}/merge
+          allow-unsafe-pr-checkout: true
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v5.6.0
+        with:
+          distribution: zulu
+          java-version: 21
+
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+
+      - name: Download Checkstyle
+        run: curl -o checkstyle.jar -L https://github.com/checkstyle/checkstyle/releases/download/checkstyle-13.8.0/checkstyle-13.8.0-all.jar
+
+      - name: Checkstyle
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: java -jar checkstyle.jar -c style.xml -f xml src | reviewdog -f=checkstyle -name="Checkstyle" -reporter=github-pr-review -fail-level=any
