@@ -22,6 +22,12 @@ jobs:
           path: gradle.properties
           properties: 'mod_id mod_name java_version minecraft_version_range'
 
+      - name: Unify Mod Name
+        id: mod_name
+        run: |
+          MESSAGE=$(printf '%s' "${{ steps.properties.outputs.mod_name }}" | sed 's/[<>:"\/\\|?*]//g')
+          echo "mod_name=$MESSAGE" >> $GITHUB_OUTPUT
+
       - name: Setup Java ${{ steps.properties.outputs.java_version }}
         uses: actions/setup-java@v3.6.0
         with:
@@ -47,7 +53,7 @@ jobs:
       - name: Capture Build Artifacts
         uses: actions/upload-artifact@v4.3.3
         with:
-          name: "${{ steps.properties.outputs.mod_name }} ${{ steps.version.outputs.version }}"
+          name: "${{ steps.mod_name.outputs.mod_name }} ${{ steps.version.outputs.version }}"
           path: build/libs/${{ steps.properties.outputs.mod_id }}-neoforge-${{ steps.version.outputs.version }}.jar
 
       - name: Publish to Maven
