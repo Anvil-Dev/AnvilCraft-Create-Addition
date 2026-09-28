@@ -12,14 +12,14 @@ public class TagsHandler {
             .addTag(AcaDamageTypeTags.COGWHEEL_AMULET_VALID);
 
         provider.addTag(AcaDamageTypeTags.COGWHEEL_AMULET_VALID)
-            .add(AllDamageTypes.CRUSH)
-            .add(AllDamageTypes.CUCKOO_SURPRISE)
-            .add(AllDamageTypes.DRILL)
-            .add(AllDamageTypes.FAN_FIRE)
-            .add(AllDamageTypes.FAN_LAVA)
-            .add(AllDamageTypes.POTATO_CANNON)
-            .add(AllDamageTypes.ROLLER)
-            .add(AllDamageTypes.RUN_OVER)
-            .add(AllDamageTypes.SAW);
+            .addOptional(AllDamageTypes.CRUSH.location())
+            .addOptional(AllDamageTypes.CUCKOO_SURPRISE.location())
+            .addOptional(AllDamageTypes.DRILL.location())
+            .addOptional(AllDamageTypes.FAN_FIRE.location())
+            .addOptional(AllDamageTypes.FAN_LAVA.location())
+            .addOptional(AllDamageTypes.POTATO_CANNON.location())
+            .addOptional(AllDamageTypes.ROLLER.location())
+            .addOptional(AllDamageTypes.RUN_OVER.location())
+            .addOptional(AllDamageTypes.SAW.location());
     }
 }

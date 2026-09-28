@@ -1,13 +1,40 @@
 {
   "values": [
-    "create:crush",
-    "create:cuckoo_surprise",
-    "create:mechanical_drill",
-    "create:fan_fire",
-    "create:fan_lava",
-    "create:potato_cannon",
-    "create:mechanical_roller",
-    "create:run_over",
-    "create:mechanical_saw"
+    {
+      "id": "create:crush",
+      "required": false
+    },
+    {
+      "id": "create:cuckoo_surprise",
+      "required": false
+    },
+    {
+      "id": "create:mechanical_drill",
+      "required": false
+    },
+    {
+      "id": "create:fan_fire",
+      "required": false
+    },
+    {
+      "id": "create:fan_lava",
+      "required": false
+    },
+    {
+      "id": "create:potato_cannon",
+      "required": false
+    },
+    {
+      "id": "create:mechanical_roller",
+      "required": false
+    },
+    {
+      "id": "create:run_over",
+      "required": false
+    },
+    {
+      "id": "create:mechanical_saw",
+      "required": false
+    }
   ]
 }

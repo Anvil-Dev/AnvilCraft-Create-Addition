@@ -6,10 +6,10 @@ neoForge {
         mappingsVersion = libs.versions.parchment.get()
     }
 
-    // interfaceInjectionData {
-    //     from 'src/main/resources/interface_injections.json'
-    //     publish file('src/main/resources/interface_injections.json')
-    // }
+    interfaceInjectionData {
+        from 'src/main/resources/interface_injections.json'
+        publish file('src/main/resources/interface_injections.json')
+    }
 
     runs {
         var isJbr = System.getProperty('java.vm.vendor').contains('JetBrains')

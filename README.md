@@ -69,7 +69,7 @@ AnvilCraft Create Addition 是一个为 NeoForge 模组生态系统设计的扩�
 ### 可配置选项
 
 ```toml
-# 相对线速度与充能量的效率比值
+# 铜块与磁铁的相对线速度与产生的电荷量之比
 chargeGeneratedEfficiency = 0.72
 
 # 神秘系数，可能与发电机所需应力相关

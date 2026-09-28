@@ -1,0 +1,5 @@
+{
+  "com/simibubi/create/content/kinetics/crank/HandCrankBlockEntity": [
+    "dev/anvilcraft/create/api/injection/block/entity/IHandCrankBlockEntityExtension"
+  ]
+}

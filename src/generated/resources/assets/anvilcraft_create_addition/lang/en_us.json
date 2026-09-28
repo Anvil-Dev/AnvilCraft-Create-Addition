@@ -6,6 +6,7 @@
   "anvilcraft_create_addition.configuration.stress_dissipation_coefficient": "Stress Dissipation Coefficient",
   "anvilcraft_create_addition.configuration.stress_dissipation_coefficient.tooltip": "The mysterious coefficient, perhaps related to the stress required by the generator?",
   "anvilcraft_create_addition.configuration.title": "Anvilcraft Create Addition Configuration",
+  "component_content.anvilcraft.mod_name.anvilcraft_create_addition": "AnvilCraft: Create Addition",
   "item.anvilcraft_create_addition.cogwheel_amulet": "Cogwheel Amulet",
   "itemGroup.anvilcraft_create_addition.items": "AnvilCraft: Create Addition"
 }

@@ -4,6 +4,7 @@
   "package": "dev.anvilcraft.create.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "HandCrankBlockEntityMixin",
     "MechanicalBearingBlockEntityMixin"
   ],
   "client": [

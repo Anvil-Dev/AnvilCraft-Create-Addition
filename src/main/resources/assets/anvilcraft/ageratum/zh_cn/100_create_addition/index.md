@@ -1,8 +1,7 @@
 ---
 navigation:
-  title: "铁砧工艺：机械附加"
-  icon: "anvilcraft:karakuri_component"
-  position: 50
+  title: "机动附加 - 介绍"
+  icon: "anvilcraft_create_addition:cogwheel_amulet"
 ---
 
 # 铁砧工艺：机械附加
@@ -68,4 +67,3 @@ A: 请在 GitHub 仓库中创建一个 Issue，并详细描述问题的复现步
 ---
 
 **祝你游戏愉快！** 🎮
-
