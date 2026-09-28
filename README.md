@@ -33,23 +33,21 @@ AnvilCraft Create Addition 是一个为 NeoForge 模组生态系统设计的扩�
 
 - **模组版本**: 1.0.0
 - **Minecraft 版本**: 1.21.1
-- **NeoForge 版本**: 21.1.152+
+- **NeoForge 版本**: 21.1.248+
 - **Java 版本**: 21+
 
 ### 核心依赖
 
-- **AnvilCraft**: 1.5.2+hotfix.1650
-- **Create**: 6.0.6-107
-- **AnvilLib**: 1.4.0+build.172
-- **Flywheel**: 1.0.4-30
-- **Ponder**: 1.0.56
+- **AnvilCraft**: 1.6.x
+- **Create**: 6.0.11
+- **AnvilLib**: 2.x
 
 ## 安装指南
 
 ### 前置要求
 
 1. **Minecraft**: 1.21.1
-2. **NeoForge**: 21.1.152 或更高版本
+2. **NeoForge**: 21.1.248 或更高版本
 3. **必需模组**：
    - AnvilCraft
    - Create
@@ -74,23 +72,6 @@ chargeGeneratedEfficiency = 0.72
 
 # 神秘系数，可能与发电机所需应力相关
 stressDissipationCoefficient = 1.76
-```
-
-## 项目结构
-
-```
-AnvilCraft-Create-Addition/
-├── src/main/
-│   ├── java/dev/anvilcraft/addon/create/
-│   │   ├── init/              # 初始化模块（物品、方块、护符等）
-│   │   ├── integration/       # 与其他模组的集成
-│   │   ├── client/            # 客户端代码
-│   │   ├── data/              # 数据生成
-│   │   └── util/              # 工具类
-│   └── resources/             # 资源文件
-├── gradle/                    # Gradle 配置
-├── build.gradle              # 构建配置
-└── dependencies.gradle       # 依赖定义
 ```
 
 ## 开发
@@ -147,7 +128,7 @@ AnvilCraft-Create-Addition/
 A: 不可以，这是一个扩展模组，必须与 AnvilCraft 和 Create 一起使用。
 
 ### Q: 模组兼容哪些版本？
-A: 目前仅支持 Minecraft 1.21.1 和 NeoForge 21.1.152+。
+A: 目前仅支持 Minecraft 1.21.1 和 NeoForge 21.1.248+。
 
 ### Q: 我发现了一个 bug，怎样报告？
 A: 请在 GitHub 仓库中创建一个 Issue，并详细描述问题的复现步骤。

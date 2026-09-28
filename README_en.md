@@ -33,23 +33,21 @@ AnvilCraft Create Addition is an extension mod designed for the NeoForge modding
 
 - **Mod Version**: 1.0.0
 - **Minecraft Version**: 1.21.1
-- **NeoForge Version**: 21.1.152+
+- **NeoForge Version**: 21.1.248+
 - **Java Version**: 21+
 
 ### Core Dependencies
 
-- **AnvilCraft**: 1.5.2+hotfix.1650
-- **Create**: 6.0.6-107
-- **AnvilLib**: 1.4.0+build.172
-- **Flywheel**: 1.0.4-30
-- **Ponder**: 1.0.56
+- **AnvilCraft**: 1.6.x
+- **Create**: 6.0.11
+- **AnvilLib**: 2.x
 
 ## Installation Guide
 
 ### Requirements
 
 1. **Minecraft**: 1.21.1
-2. **NeoForge**: 21.1.152 or higher
+2. **NeoForge**: 21.1.248 or higher
 3. **Required Mods**:
   - AnvilCraft
   - Create
@@ -75,23 +73,6 @@ chargeGeneratedEfficiency = 0.72
 
 # The mysterious coefficient, perhaps related to the stress required by the generator
 stressDissipationCoefficient = 1.76
-```
-
-## Project Structure
-
-```
-AnvilCraft-Create-Addition/
-├── src/main/
-│   ├── java/dev/anvilcraft/addon/create/
-│   │   ├── init/              # Initialization modules (items, blocks, amulets, etc.)
-│   │   ├── integration/       # Integration with other mods
-│   │   ├── client/            # Client-side code
-│   │   ├── data/              # Data generation
-│   │   └── util/              # Utility classes
-│   └── resources/             # Resource files
-├── gradle/                    # Gradle configuration
-├── build.gradle              # Build configuration
-└── dependencies.gradle       # Dependency definitions
 ```
 
 ## Development
@@ -148,7 +129,7 @@ We welcome contributions from the community! If you want to contribute code or r
 A: No, this is an extension mod and must be used together with AnvilCraft and Create.
 
 ### Q: Which versions does this mod support?
-A: Currently only supports Minecraft 1.21.1 and NeoForge 21.1.152+.
+A: Currently only supports Minecraft 1.21.1 and NeoForge 21.1.248+.
 
 ### Q: How do I report a bug?
 A: Please create an Issue in the GitHub repository with detailed steps to reproduce the problem.
