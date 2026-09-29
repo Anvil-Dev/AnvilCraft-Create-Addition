@@ -10,7 +10,6 @@ import net.minecraft.world.item.ItemStack;
 
 import static dev.anvilcraft.create.AncCreateAddon.REGISTRUM;
 
-
 public class AcaItems {
     public static final ItemEntry<Item> COGWHEEL_AMULET = REGISTRUM
         .item("cogwheel_amulet", Item::new)

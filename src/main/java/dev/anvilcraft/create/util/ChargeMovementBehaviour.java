@@ -204,23 +204,22 @@ public class ChargeMovementBehaviour implements MovementBehaviour {
                     coefficient += offset;
                 }
                 case StabilizedBearingMovementBehaviour ignored -> {
-//                    CompoundTag c = new CompoundTag();
-//                    c.putLong("Pos", info.pos().asLong());
-//                    c.putInt("State", id);
-//
-//                    BlockEntity blockEntity = ((ContraptionInvoker) contraption).invokeReadBlockEntity(context.world, info, info.nbt());
-//                    if (!(blockEntity instanceof MechanicalBearingBlockEntity mechanicalBearingBlockEntity)) {
-//                        continue;
-//                    }
-//                    ControlledContraptionEntity movedContraption = mechanicalBearingBlockEntity.getMovedContraption();
-//                    if (movedContraption == null) {
-//                        continue;
-//                    }
-//                    Contraption contraption1 = movedContraption.getContraption();
-//                    if (contraption1 == null) {
-//                        continue;
-//                    }
-//                    coefficient += ChargeMovementBehaviour.calculateStressApplied(contraption1);
+                   // CompoundTag c = new CompoundTag();
+                   // c.putLong("Pos", info.pos().asLong());
+                   // c.putInt("State", id);
+                   // BlockEntity blockEntity = ((ContraptionInvoker) contraption).invokeReadBlockEntity(context.world, info, info.nbt());
+                   // if (!(blockEntity instanceof MechanicalBearingBlockEntity mechanicalBearingBlockEntity)) {
+                   //     continue;
+                   // }
+                   // ControlledContraptionEntity movedContraption = mechanicalBearingBlockEntity.getMovedContraption();
+                   // if (movedContraption == null) {
+                   //     continue;
+                   // }
+                   // Contraption contraption1 = movedContraption.getContraption();
+                   // if (contraption1 == null) {
+                   //     continue;
+                   // }
+                   // coefficient += ChargeMovementBehaviour.calculateStressApplied(contraption1);
                 }
                 case null, default -> {
                 }
