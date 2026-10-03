@@ -2,13 +2,13 @@
 minecraft = "1.21.1"
 neoforge = "21.1.248"
 
-anvillib = "2.0.0+snapshot.535"
+anvillib = "2.0.0+snapshot.546"
 ageratum = "0.0.1+build.121"
-anvilcraft = "1.6.0+snapshot.2348"
+anvilcraft = "1.6.0+snapshot.2408"
 
-create = "6.0.11-312"
+create = "6.0.11-313"
 
-jei = "19.32.0.358"
+jei = "19.50.0.414"
 jade = "15.10.5+neoforge"
 
 parchment = "2024.11.17"
