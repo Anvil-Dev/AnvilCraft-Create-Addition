@@ -12,6 +12,7 @@ import dev.anvilcraft.create.init.AcaItems;
 import dev.anvilcraft.create.integration.BatchCrafterUnpackingHandler;
 import dev.anvilcraft.create.integration.CreateBoilerHeaterProvider;
 import dev.anvilcraft.create.integration.GogglesAmuletIntegration;
+import dev.anvilcraft.create.integration.belt.BeltWorkstationIntegration;
 import dev.anvilcraft.lib.v2.config.ConfigManager;
 import dev.anvilcraft.lib.v2.registrum.Registrum;
 import net.minecraft.resources.ResourceKey;
@@ -41,6 +42,7 @@ public class AncCreateAddon {
         AcaAmulets.register(modEventBus);
         BoilerHeater.REGISTRY.registerProvider(new CreateBoilerHeaterProvider());
         GogglesAmuletIntegration.register();
+        BeltWorkstationIntegration.register(modEventBus);
         // noinspection UnstableApiUsage
         UnpackingHandler.REGISTRY.registerProvider(BatchCrafterUnpackingHandler.INSTANCE);
     }
